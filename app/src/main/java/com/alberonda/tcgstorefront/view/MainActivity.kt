@@ -1,8 +1,9 @@
-package com.alberonda.tcgstorefront
+package com.alberonda.tcgstorefront.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.alberonda.tcgstorefront.R
 import com.alberonda.tcgstorefront.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
