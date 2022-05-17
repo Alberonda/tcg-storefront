@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/alber/AndroidStudioProjects/TCGStorefront/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/alber/AndroidStudioProjects/TCGStorefront/app/src/main/res/layout/fragment_main.xml" value="0.14260385005065856" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/TCGStorefront/app/src/main/res/layout/fragment_main.xml" value="0.25" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/TCGStorefront/app/src/main/res/layout/game_layout.xml" value="0.33" />
       </map>
     </option>
   </component>
