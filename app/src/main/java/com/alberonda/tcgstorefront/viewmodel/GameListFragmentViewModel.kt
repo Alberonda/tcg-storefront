@@ -10,7 +10,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MainFragmentViewModel : ViewModel() {
+class GameListFragmentViewModel : ViewModel() {
 
     /**
      * The list with all the games in the app
