@@ -4,14 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.alberonda.tcgstorefront.domain.GameListUseCases
 import com.alberonda.tcgstorefront.model.data.Game
-import com.alberonda.tcgstorefront.model.network.StorefrontApi
+import com.alberonda.tcgstorefront.model.repositories.GamesRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class GameListFragmentViewModel : ViewModel() {
+@HiltViewModel
+class GameListFragmentViewModel
+@Inject
+constructor(
+    private val gamesRepository: GamesRepository
+) : ViewModel() {
 
     /**
      * The list with all the games in the app
@@ -41,11 +46,11 @@ class GameListFragmentViewModel : ViewModel() {
     private fun loadGames() {
         viewModelScope.launch {
             try {
-                launchDataLoad{
-                    _games.value = StorefrontApi.retrofitService.getGames().games
+                launchDataLoad {
+                    _games.value = gamesRepository.getGames()
                 }
             } catch (e: Exception) {
-                _games.value = listOf(Game(-1,e.message!!))
+                _games.value = listOf(Game(-1, e.message!!))
             }
         }
     }
