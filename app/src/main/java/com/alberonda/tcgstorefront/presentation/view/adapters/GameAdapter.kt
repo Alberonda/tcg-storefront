@@ -1,6 +1,5 @@
-package com.alberonda.tcgstorefront.view.adapters
+package com.alberonda.tcgstorefront.presentation.view.adapters
 
-import android.R.attr.data
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater

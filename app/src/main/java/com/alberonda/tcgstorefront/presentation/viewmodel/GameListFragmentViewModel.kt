@@ -1,9 +1,10 @@
-package com.alberonda.tcgstorefront.viewmodel
+package com.alberonda.tcgstorefront.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alberonda.tcgstorefront.domain.GameListUseCases
 import com.alberonda.tcgstorefront.model.data.Game
 import com.alberonda.tcgstorefront.model.network.StorefrontApi
 import kotlinx.coroutines.Job
@@ -41,7 +42,6 @@ class GameListFragmentViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 launchDataLoad{
-                    delay(10000)
                     _games.value = StorefrontApi.retrofitService.getGames().games
                 }
             } catch (e: Exception) {

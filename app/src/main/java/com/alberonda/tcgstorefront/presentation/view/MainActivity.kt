@@ -1,4 +1,4 @@
-package com.alberonda.tcgstorefront.view
+package com.alberonda.tcgstorefront.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

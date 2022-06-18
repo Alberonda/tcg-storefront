@@ -1,4 +1,4 @@
-package com.alberonda.tcgstorefront.view
+package com.alberonda.tcgstorefront.presentation.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,8 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.alberonda.tcgstorefront.R
 import com.alberonda.tcgstorefront.databinding.FragmentGameListBinding
-import com.alberonda.tcgstorefront.view.adapters.GameAdapter
-import com.alberonda.tcgstorefront.viewmodel.GameListFragmentViewModel
+import com.alberonda.tcgstorefront.presentation.view.adapters.GameAdapter
+import com.alberonda.tcgstorefront.presentation.viewmodel.GameListFragmentViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class GameListFragment : Fragment() {

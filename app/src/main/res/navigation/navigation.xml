@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/mainFragment">
-
+    app:startDestination="@id/gameListFragment">
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.alberonda.tcgstorefront.view.GameListFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_game_list" />
+        android:id="@+id/gameListFragment"
+        android:name="com.alberonda.tcgstorefront.presentation.view.GameListFragment"
+        android:label="GameListFragment"
+        tools:layout="@layout/fragment_game_list"/>
 </navigation>
