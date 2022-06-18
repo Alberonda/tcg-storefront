@@ -12,15 +12,11 @@ import com.alberonda.tcgstorefront.databinding.FragmentGameListBinding
 import com.alberonda.tcgstorefront.presentation.view.adapters.GameAdapter
 import com.alberonda.tcgstorefront.presentation.viewmodel.GameListFragmentViewModel
 import com.google.android.material.snackbar.Snackbar
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
-@AndroidEntryPoint
 class GameListFragment : Fragment() {
 
-    private val gameListFragmentViewModel: GameListFragmentViewModel by viewModels()
-
     private lateinit var binding: FragmentGameListBinding
+    private val mainFragmentViewModel: GameListFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +26,7 @@ class GameListFragment : Fragment() {
             inflater, R.layout.fragment_game_list, container, false
         )
 
-        subscribeLoading()
+        subscribeLoadng()
 
         subscribeSnackbar()
 
@@ -39,17 +35,17 @@ class GameListFragment : Fragment() {
         return binding.root
     }
 
-    private fun subscribeLoading(){
-        gameListFragmentViewModel.spinner.observe(viewLifecycleOwner) { show ->
+    private fun subscribeLoadng(){
+        mainFragmentViewModel.spinner.observe(viewLifecycleOwner) { show ->
             binding.spinner.visibility = if (show) View.VISIBLE else View.GONE
         }
     }
 
     private fun subscribeSnackbar() {
-        gameListFragmentViewModel.snackbar.observe(viewLifecycleOwner) { text ->
+        mainFragmentViewModel.snackbar.observe(viewLifecycleOwner) { text ->
             text?.let {
                 Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
-                gameListFragmentViewModel.onSnackbarShown()
+                mainFragmentViewModel.onSnackbarShown()
             }
         }
     }
@@ -58,7 +54,7 @@ class GameListFragment : Fragment() {
         val adapter = GameAdapter(this.requireActivity().applicationContext, emptyList())
         binding.gamesRecycler.adapter = adapter
 
-        gameListFragmentViewModel.games.observe(viewLifecycleOwner) { games ->
+        mainFragmentViewModel.games.observe(viewLifecycleOwner) { games ->
             adapter.submitList(games)
         }
     }

@@ -47,7 +47,7 @@ interface StorefrontApiService {
     suspend fun getGames() : GetGamesResponse
 }
 
-object RetrofitService {
+object StorefrontApi {
     val retrofitService : StorefrontApiService by lazy {
         retrofit.create(StorefrontApiService::class.java)
     }
