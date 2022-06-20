@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alberonda.tcgstorefront.domain.GameListUseCases
 import com.alberonda.tcgstorefront.model.data.Game
 import com.alberonda.tcgstorefront.model.repositories.GamesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,7 @@ import javax.inject.Inject
 class GameListFragmentViewModel
 @Inject
 constructor(
-    private val gamesRepository: GamesRepository
+    private val gameListUseCases: GameListUseCases
 ) : ViewModel() {
 
     /**
@@ -47,7 +48,7 @@ constructor(
         viewModelScope.launch {
             try {
                 launchDataLoad {
-                    _games.value = gamesRepository.getGames()
+                    _games.value = gameListUseCases.getGames()
                 }
             } catch (e: Exception) {
                 _games.value = listOf(Game(-1, e.message!!))

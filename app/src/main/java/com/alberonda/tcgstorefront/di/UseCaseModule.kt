@@ -3,6 +3,8 @@ package com.alberonda.tcgstorefront.di
 import com.alberonda.tcgstorefront.domain.GameListInteractor
 import com.alberonda.tcgstorefront.domain.GameListUseCases
 import com.alberonda.tcgstorefront.model.network.StorefrontApiService
+import com.alberonda.tcgstorefront.model.repositories.GamesRepository
+import com.alberonda.tcgstorefront.model.repositories.GamesRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -12,13 +14,8 @@ import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object UseCaseModule {
+abstract class UseCaseModule {
 
-    @Provides
-    @ViewModelScoped
-    fun provideGameListUseCases(
-        storefrontApiService: StorefrontApiService
-    ): GameListUseCases {
-        return GameListInteractor(storefrontApiService)
-    }
+    @Binds
+    abstract fun provideGameListUseCases(impl: GameListInteractor): GameListUseCases
 }
