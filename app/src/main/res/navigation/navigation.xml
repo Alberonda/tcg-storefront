@@ -7,6 +7,6 @@
     <fragment
         android:id="@+id/gameListFragment"
         android:name="com.alberonda.tcgstorefront.presentation.view.GameListFragment"
-        android:label="GameListFragment"
+        android:label="Lista de juegos"
         tools:layout="@layout/fragment_game_list"/>
 </navigation>
